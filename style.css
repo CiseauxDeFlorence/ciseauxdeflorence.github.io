@@ -1,73 +1,155 @@
-/* Set the global variables for everything. Change these to use your own fonts/colours. */
-:root {
-
-    /* Set sans-serif & mono fonts */
-    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
-  
-    /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
-    --base-fontsize: 1.15rem;
-  
-    /* Major third scale progression - see https://type-scale.com/ */
-    --header-scale: 1.25;
-  
-    /* Line height is set to the "Golden ratio" for optimal legibility */
-    --line-height: 1.618;
-  
-    /* Default (light) theme */
-    --bg: #240046;
-    --accent-bg: #e0aaff;
-    --text: #e0aaff;
-    --text-light: #240046;
-    --border: #D8DAE1;
-    --accent: #ff9e00;
-    --accent-light: #ff9e00;
-  }
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --navbar-font-family: "Open Sans", Sans-serif;
+    --navbar-bg-color: #333;
+    --navbar-link-color: #e0aaff;
+    --navbar-link-hover-color: #0088a9;
+/* 240046 */
+
+    --navbar-cta-bg-color: #ff9e00;
+    --navbar-cta-bg-hover-color: #ff9e00;
+
+    --body-bg-color: #27272c;
+    --body-text-color: #baaec4;
+
+    --primary-text-color: #ab79d6;
+    --border: #240046;
 }
 
 body {
-    background: var(--bg);
-    padding: 15px;
+    background: var(--body-bg-color);
+    color: var(--body-text-color);
+    font-family: var(--navbar-font-family);
 }
 
-.glass {
-    background: rgba( 144, 19, 254, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
+a {
+    cursor: pointer;
 }
 
 h1 {
-    margin-top: 80px;
-    text-transform: uppercase;
-    font-size: 80;
-    font-weight: 60;
-    font-family: var(--sans-font);
-    color: var(--text);
+    color: var(--primary-text-color);
+    font-weight: 800;
+    letter-spacing: .04em;
+    line-height: 1.1;
 }
 
-h2 {
-    color: var(--text);
-    font-family: var(--sans-font);
+header {
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-link-color);
+    font-family: var(--navbar-font-family);
 }
 
-h3 {
-    text-transform: uppercase;
-    text-align:center;
-    color: var(--text);
-    font-family: var(--sans-font);
+header a {
+    color: var(--navbar-link-color);
 }
 
-div.tarifs {
+header {
+    position: fixed;
+    top: 0;
+    width:100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+header nav {
+    display: block;
+}
+
+header nav .desktop {
+    display: none;
+}
+
+.logo {
+    font-size: 35px;
+}
+
+.cta {
+    padding: 9px 25px;
+    background-color: var(--navbar-cta-bg-color);
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+    background-color: var(--navbar-cta-bg-hover-color);
+}
+
+header ul {
     display: flex;
 }
 
+header ul li {
+    padding: 0 20px;
+    display: none;
+}
+
+header ul li a {
+    transition: color 0.3s ease 0s;
+    font-weight: bold;
+}
+
+header ul li a:hover {
+    color: var(--navbar-link-hover-color);
+}
+
+main {
+    margin-top: 101px;
+}
+
+.hero__wrapper {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, auto));
+    grid-gap: 2rem;
+    padding: 10vmin 2rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.hero__content {
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 450px) {
+
+    header li.mobile {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    header nav li.desktop {
+        display: block;
+    }
+
+    header nav li.mobile {
+        display: none;
+    }
+}
+
+section.tarifs {
+    display: flex;
+    background-color: #0088a9;
+}
+
+
+
 table {
     margin: 15px;
+    width: 40%;
 }
 
 a button,
@@ -75,12 +157,12 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  font-family: var(--sans-font);
+  font-family: var(--navbar-font-family);
   border: none;
   border-radius: 5px;
-  background: var(--accent);
+  background: var(--navbar-cta-bg-color);
   font-size: 1rem;
-  color: var(--bg);
+  color: var(--navbar-bg-color);
   padding: .7rem .9rem;
   margin: .5rem 0;
   transition: .4s;
@@ -108,7 +190,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin: 1.5rem 0;
-    font-family: var(--sans-font);
+    font-family: var(--navbar-font-family);
   }
   
   td,
@@ -119,14 +201,14 @@ table {
   }
   
   th {
-    background: var(--accent-bg);
+    background: var(--navbar-bg-color);
     font-weight: bold;
     text-align: center;
   }
   
   tr:nth-child(even) {
     /* Set every other cell slightly darker. Improves readability. */
-    background: var(--accent-bg);
+    background: var(--navbar-bg-color);
   }
   
   table caption {
