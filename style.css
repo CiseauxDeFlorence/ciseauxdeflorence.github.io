@@ -1,0 +1,135 @@
+/* Set the global variables for everything. Change these to use your own fonts/colours. */
+:root {
+
+    /* Set sans-serif & mono fonts */
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+  
+    /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
+    --base-fontsize: 1.15rem;
+  
+    /* Major third scale progression - see https://type-scale.com/ */
+    --header-scale: 1.25;
+  
+    /* Line height is set to the "Golden ratio" for optimal legibility */
+    --line-height: 1.618;
+  
+    /* Default (light) theme */
+    --bg: #240046;
+    --accent-bg: #e0aaff;
+    --text: #e0aaff;
+    --text-light: #240046;
+    --border: #D8DAE1;
+    --accent: #ff9e00;
+    --accent-light: #ff9e00;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    padding: 15px;
+}
+
+.glass {
+    background: rgba( 144, 19, 254, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
+
+h1 {
+    margin-top: 80px;
+    text-transform: uppercase;
+    font-size: 80;
+    font-weight: 60;
+    font-family: var(--sans-font);
+    color: var(--text);
+}
+
+h2 {
+    color: var(--text);
+    font-family: var(--sans-font);
+}
+
+h3 {
+    text-transform: uppercase;
+    text-align:center;
+    color: var(--text);
+    font-family: var(--sans-font);
+}
+
+div.tarifs {
+    display: flex;
+}
+
+table {
+    margin: 15px;
+}
+
+a button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  font-family: var(--sans-font);
+  border: none;
+  border-radius: 5px;
+  background: var(--accent);
+  font-size: 1rem;
+  color: var(--bg);
+  padding: .7rem .9rem;
+  margin: .5rem 0;
+  transition: .4s;
+  cursor: pointer;
+}
+
+button:focus,
+button:enabled:hover,
+input[type="submit"]:focus,
+input[type="submit"]:enabled:hover,
+input[type="reset"]:focus,
+input[type="reset"]:enabled:hover,
+input[type="button"]:focus,
+input[type="button"]:enabled:hover,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:enabled:hover,
+input[type="radio"]:focus,
+input[type="radio"]:enabled:hover{
+  opacity: .8;
+}
+
+
+/* Format tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+    font-family: var(--sans-font);
+  }
+  
+  td,
+  th {
+    border: 1px solid var(--border);
+    text-align: left;
+    padding: .5rem;
+  }
+  
+  th {
+    background: var(--accent-bg);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    /* Set every other cell slightly darker. Improves readability. */
+    background: var(--accent-bg);
+  }
+  
+  table caption {
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
